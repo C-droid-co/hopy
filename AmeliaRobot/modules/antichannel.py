@@ -76,7 +76,7 @@ If enabled, the message from the channel which the user sends will be banned.
 
 ANTICHANNEL_HANDLER = CommandHandler("antichannel", set_antichannel, run_async=True)
 ELIMINATE_CHANNEL_HANDLER = MessageHandler(
-    Filters.chat_type.groups, eliminate_channel, run_async=True
+    Filters.chat_type.groups, eliminate_channel
 )
 
 dispatcher.add_handler(ANTICHANNEL_HANDLER, SET_CH_GROUP)
