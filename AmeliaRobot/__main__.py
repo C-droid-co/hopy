@@ -694,7 +694,7 @@ def main():
     help_callback_handler = CallbackQueryHandler(hellp_button, pattern=r"hellp_.*")
 
     settings_handler = CommandHandler("seettings", geet_settings)
-    settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
+    settings_callback_handler = CallbackQueryHandler(seettings_button, pattern=r"stngs_")
 
     about_callback_handler = CallbackQueryHandler(amelia_about_callback, pattern=r"amelia_")
     source_callback_handler = CallbackQueryHandler(Source_about_callback, pattern=r"source_")
