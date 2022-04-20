@@ -1,5 +1,6 @@
 import AmeliaRobot.modules.sql.blacklistusers_sql as sql
-from AmeliaRobot import ALLOW_EXCL, DEV_USERS, SUPPORT_USERS
+from AmeliaRobot import ALLOW_EXCL
+from AmeliaRobot import DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES
 
 from telegram import Update
 from telegram.ext import CommandHandler, MessageHandler, RegexHandler, Filters
@@ -11,14 +12,21 @@ from pyrate_limiter import (
     MemoryListBucket,
 )
 
-  if ALLOW_EXCL:
+if ALLOW_EXCL:
     CMD_STARTERS = ("/", "!")
- else:
+else:
     CMD_STARTERS = ("/",)
+
 
 class AntiSpam:
     def __init__(self):
-        self.whitelist = DEV_USERS | SUPPORT_USERS
+        self.whitelist = (
+            (DEV_USERS or [])
+            + (DRAGONS or [])
+            + (WOLVES or [])
+            + (DEMONS or [])
+            + (TIGERS or [])
+        )
         # Values are HIGHLY experimental, its recommended you pay attention to our commits as we will be adjusting the values over time with what suits best.
         Duration.CUSTOM = 15  # Custom duration, 15 seconds
         self.sec_limit = RequestRate(6, Duration.CUSTOM)  # 6 / Per 15 Seconds
@@ -75,7 +83,7 @@ class CustomCommandHandler(CommandHandler):
             if message.text and len(message.text) > 1:
                 fst_word = message.text.split(None, 1)[0]
                 if len(fst_word) > 1 and any(
-                    fst_word.startswith(start) for start in ALLOW_EXCL
+                    fst_word.startswith(start) for start in CMD_STARTERS
                 ):
 
                     args = message.text.split()[1:]
@@ -128,8 +136,4 @@ class CustomMessageHandler(MessageHandler):
 
         def check_update(self, update):
             if isinstance(update, Update) and update.effective_message:
-                if self.filters(update):
-                    if SpamChecker.check_user(user_id):
-                        return None
-                    return True
-                return False
+                return self.filters(update)
