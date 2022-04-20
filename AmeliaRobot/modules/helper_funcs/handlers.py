@@ -1,5 +1,5 @@
 import AmeliaRobot.modules.sql.blacklistusers_sql as sql
-from AmeliaRobot import PREFIX, DEV_USERS, SUPPORT_USERS
+from AmeliaRobot import ALLOW_EXCL, DEV_USERS, SUPPORT_USERS
 
 from telegram import Update
 from telegram.ext import CommandHandler, MessageHandler, RegexHandler, Filters
@@ -11,6 +11,10 @@ from pyrate_limiter import (
     MemoryListBucket,
 )
 
+  if ALLOW_EXCL:
+    CMD_STARTERS = ("/", "!")
+ else:
+    CMD_STARTERS = ("/",)
 
 class AntiSpam:
     def __init__(self):
@@ -71,7 +75,7 @@ class CustomCommandHandler(CommandHandler):
             if message.text and len(message.text) > 1:
                 fst_word = message.text.split(None, 1)[0]
                 if len(fst_word) > 1 and any(
-                    fst_word.startswith(start) for start in PREFIX
+                    fst_word.startswith(start) for start in ALLOW_EXCL
                 ):
 
                     args = message.text.split()[1:]
