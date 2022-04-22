@@ -118,7 +118,7 @@ def make_bar(per):
 
 
 @run_async
-def get_id(update: Update, context: CallbackContext):
+def geet_id(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
     chat = update.effective_chat
@@ -199,7 +199,7 @@ async def group_info(event) -> None:
 
 
 @run_async
-def gifid(update: Update, context: CallbackContext):
+def gifiid(update: Update, context: CallbackContext):
     msg = update.effective_message
     if msg.reply_to_message and msg.reply_to_message.animation:
         update.effective_message.reply_text(
@@ -211,7 +211,7 @@ def gifid(update: Update, context: CallbackContext):
 
 
 @run_async
-def info(update: Update, context: CallbackContext):
+def iinfo(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
     chat = update.effective_chat
@@ -421,7 +421,7 @@ def set_about_me(update: Update, context: CallbackContext):
 
 @run_async
 @sudo_plus
-def stats(update: Update, context: CallbackContext):
+def sttats(update: Update, context: CallbackContext):
     stats = "<b>📊 Current stats:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
     update.effective_message.reply_text(result, parse_mode=ParseMode.HTML)
@@ -516,44 +516,15 @@ def __user_info__(user_id):
     return result
 
 
-__help__ = """
-*Away from group*
- ❍ /afk <reason>*:* mark yourself as AFK(away from keyboard).
- ❍ brb <reason>*:* same as the afk command - but not a command.
-When marked as AFK, any mentions will be replied to with a message to say you're not available!
 
-*ID:*
- ❍ /id*:* get the current group id. If used by replying to a message, gets that user's id.
- ❍ /gifid*:* reply to a gif to me to tell you its file ID.
-
-*Self addded information:* 
- ❍ /setme <text>*:* will set your info
- ❍ /me*:* will get your or another user's info.
-*Examples:* 💡
- ➩ /setme I am a wolf.
- ➩ /me @username(defaults to yours if no user specified)
-
-*Information others add on you:* 
- ❍ /bio*:* will get your or another user's bio. This cannot be set by yourself.
- ❍ /setbio <text>*:* while replying, will save another user's bio 
-*Examples:* 💡
- ➩ /bio @username(defaults to yours if not specified).`
- ➩ /setbio This user is a wolf` (reply to the user)
-
-*Overall Information about you:*
- ❍ /info*:* get information about a user. 
- 
-*What is that health thingy?*
- Come and see [HP System explained](https://t.me/OnePunchUpdates/192)
-"""
 
 SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio)
 GET_BIO_HANDLER = DisableAbleCommandHandler("bio", about_bio)
 
-STATS_HANDLER = CommandHandler("stats", stats)
-ID_HANDLER = DisableAbleCommandHandler("id", get_id)
-GIFID_HANDLER = DisableAbleCommandHandler("gifid", gifid)
-INFO_HANDLER = DisableAbleCommandHandler(("info", "book"), info)
+STATS_HANDLER = CommandHandler("sttats", sttats)
+ID_HANDLER = DisableAbleCommandHandler("iid", geet_id)
+GIFID_HANDLER = DisableAbleCommandHandler("gifiid", gifiid)
+INFO_HANDLER = DisableAbleCommandHandler(("iinfo", "book"), iinfo)
 
 SET_ABOUT_HANDLER = DisableAbleCommandHandler("setme", set_about_me)
 GET_ABOUT_HANDLER = DisableAbleCommandHandler("me", about_me)
@@ -567,7 +538,6 @@ dispatcher.add_handler(GET_BIO_HANDLER)
 dispatcher.add_handler(SET_ABOUT_HANDLER)
 dispatcher.add_handler(GET_ABOUT_HANDLER)
 
-__mod_name__ = "Infos"
 __command_list__ = ["setbio", "bio", "setme", "me", "info"]
 __handlers__ = [
     ID_HANDLER,
