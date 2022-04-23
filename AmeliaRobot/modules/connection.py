@@ -6,7 +6,8 @@ from telegram.error import BadRequest, Unauthorized
 from telegram.ext import CommandHandler, CallbackQueryHandler, run_async
 
 import AmeliaRobot.modules.sql.connection_sql as sql
-from AmeliaRobot import dispatcher, DRAGONS, DEV_USERS
+from AmeliaRobot import dispatcher DEV_USERS
+from AmeliaRobot import INSPECTOR as DRAGONS
 from AmeliaRobot.modules.helper_funcs import chat_status
 from AmeliaRobot.modules.helper_funcs.alternate import send_message, typing_action
 
