@@ -34,7 +34,7 @@ from AmeliaRobot import (
     telethn,
     updater)
 
-from AmeliaRobot.Plugins import ALL_MODULES
+from AmeliaRobot.modules import ALL_MODULES
 from AmeliaRobot.__help__ import (
 get_help, 
 help_button, 
