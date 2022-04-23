@@ -1,5 +1,5 @@
 from AmeliaRobot.modules.helper_funcs.telethn import IMMUNE_USERS, telethn
-from AmeliaRobot import DRAGONS
+from AmeliaRobot import INSPECTOR
 from telethon.tl.types import ChannelParticipantsAdmins
 
 
@@ -25,7 +25,7 @@ async def user_is_admin(user_id: int, message):
     async for user in telethn.iter_participants(
         message.chat_id, filter=ChannelParticipantsAdmins
     ):
-        if user_id == user.id or user_id in DRAGONS:
+        if user_id == user.id or user_id in INSPECTOR:
             status = True
             break
     return status
