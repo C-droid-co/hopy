@@ -35,7 +35,7 @@ from AmeliaRobot import (
     updater)
 
 from AmeliaRobot.modules import ALL_MODULES
-from AmeliaRobot.__help__ import (
+from AmeliaRobot.helpper import (
 get_help, 
 help_button, 
 get_settings, 
