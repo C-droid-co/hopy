@@ -63,7 +63,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = (
-    f"Hello ! My name is {bot.first_name} . I can manage [your](https://telegra.ph/file/29c96b37118570a764397.jpg) "
+    f"Hello *{}* ! My name is *{}* . I can manage [your](https://telegra.ph/file/29c96b37118570a764397.jpg) "
     + "group with lots of useful features, feel free to "
     + "add me to your group."
 )
@@ -194,7 +194,7 @@ def yone_about_callback(update: Update, context: CallbackContext):
     query = update.callback_query
     if query.data == "yone_":
         query.message.edit_text(
-            text="""Hello *{user.first_name}*, My name is *{bot.first_name}*. A Powerful Telegram Group Management Bot built to help you manage Group easily.
+            text="""Hello *{}*, My name is *{}*. A Powerful Telegram Group Management Bot built to help you manage Group easily.
             \n ‣ I can Restrict Users.
             \n ‣ I can Greet Users with customizable welcome message and even set a group rules
             \n ‣ I have an advanced Anti-Flood System which will help you to safe group from Spammmer.
