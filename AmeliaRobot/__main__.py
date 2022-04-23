@@ -35,7 +35,7 @@ from AmeliaRobot import (
     updater)
 
 from AmeliaRobot.modules import ALL_MODULES
-from AmeliaRobot.helpper import __help__
+from AmeliaRobot.helpper import *
 
 def get_readable_time(seconds: int) -> str:
     count = 0
