@@ -1,7 +1,7 @@
-from AmeliaRobot import DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES, telethn
+from AmeliaRobot import DEV_USERS, telethn
 
-IMMUNE_USERS = DRAGONS + WOLVES + DEMONS + TIGERS + DEV_USERS
+IMMUNE_USERS = DEV_USERS
 
 IMMUNE_USERS = (
-    list(DRAGONS) + list(WOLVES) + list(DEMONS) + list(TIGERS) + list(DEV_USERS)
+     list(DEV_USERS)
 )
