@@ -2,7 +2,7 @@ import importlib
 import collections
 
 from AmeliaRobot import dispatcher, telethn
-from AmeliaRobot.helpper import (
+from AmeliaRobot.helpper.__help__ import (
     CHAT_SETTINGS,
     DATA_EXPORT,
     DATA_IMPORT,
