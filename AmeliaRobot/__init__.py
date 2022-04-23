@@ -1,7 +1,9 @@
 import logging, os, sys, time
 import telegram.ext as tg
 from telethon.sessions import MemorySession
+from pyrogram import Client, errors
 from telethon import TelegramClient
+from AmeliaRobot.utils.logger import log
 import spamwatch
 
 StartTime = time.time()
@@ -116,6 +118,7 @@ else:
 
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
+pbot = Client("ameliapbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 telethn = TelegramClient(MemorySession(), API_ID, API_HASH)
 dispatcher = updater.dispatcher
 
