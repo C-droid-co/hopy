@@ -21,7 +21,7 @@ from AmeliaRobot import (
     sw,
 )
 from AmeliaRobot.__main__ import  TOKEN
-from AmeliaRobot.helpper import STATS, USER_INFO
+from AmeliaRobot.helpper.__help__ import STATS, USER_INFO
 import AmeliaRobot.modules.sql.userinfo_sql as sql
 from AmeliaRobot.modules.disable import DisableAbleCommandHandler
 from AmeliaRobot.modules.sql.global_bans_sql import is_user_gbanned
