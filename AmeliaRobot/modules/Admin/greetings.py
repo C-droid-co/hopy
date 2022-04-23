@@ -1,4 +1,3 @@
-
 __mod_name__ = "Greetings"
 __help__ = """
 /captcha [ENABLE|DISABLE] - Enable/Disable captcha.
