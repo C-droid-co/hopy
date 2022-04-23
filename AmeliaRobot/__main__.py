@@ -35,7 +35,27 @@ from AmeliaRobot import (
     updater)
 
 from AmeliaRobot.modules import ALL_MODULES
-from AmeliaRobot import helpper
+from AmeliaRobot.helpper import (
+get_help, 
+help_button, 
+get_settings, 
+settings_button, 
+migrate_chats, 
+send_help, 
+send_admin_help,
+send_user_help,
+user_help_button,
+send_settings,
+admin_help_button,
+tools_help_button,
+send_tools_help,
+HELP_STRINGS,
+IMPORTED,
+IMPORTED,
+HELPABLE,
+ADMIN,
+USER,
+TOOLS )
 
 def get_readable_time(seconds: int) -> str:
     count = 0
