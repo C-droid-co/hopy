@@ -2,7 +2,7 @@ import logging, os, sys, time
 import telegram.ext as tg
 from telethon.sessions import MemorySession
 from telethon import TelegramClient
-
+import spamwatch
 
 StartTime = time.time()
 
@@ -74,8 +74,8 @@ if ENV:
 
     DEL_CMDS = bool(os.environ.get("DEL_CMDS", True))
     INFOPIC = bool(os.environ.get("INFOPIC", False))
-
-
+    SPAMWATCH_SUPPORT_CHAT = bool(os.environ.get("SPAMWATCH_SUPPORT_CHAT", False))
+    SPAMWATCH_API = bool(os.environ.get("SPAMWATCH_API", False))
 
 
 else:
@@ -100,6 +100,19 @@ else:
     CERT_PATH = Config.CERT_PATH
     PORT = Config.PORT
     URL = Config.URL
+    SPAMWATCH_SUPPORT_CHAT = Config.SPAMWATCH_SUPPORT_CHAT
+    SPAMWATCH_API = Config.SPAMWATCH_API
+
+
+if not SPAMWATCH_API:
+    sw = None
+    LOGGER.warning("SpamWatch API key missing! recheck your config.")
+else:
+    try:
+        sw = spamwatch.Client(SPAMWATCH_API)
+    except:
+        sw = None
+        LOGGER.warning("Can't connect to SpamWatch!")
 
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
