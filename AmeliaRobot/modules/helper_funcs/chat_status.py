@@ -354,7 +354,7 @@ def user_can_ban(func):
         member = update.effective_chat.get_member(user)
         if (
             not (member.can_restrict_members or member.status == "creator")
-            and user not in DRAGONS
+            and user not in DEV_USERS 
             and user not in [777000, 1129957342]
         ):
             update.effective_message.reply_text(
