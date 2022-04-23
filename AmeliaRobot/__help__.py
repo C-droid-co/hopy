@@ -1,7 +1,7 @@
 import importlib, re
 from AmeliaRobot import dispatcher, ALLOW_EXCL, LOGGER
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
-from AmeliaRobot.helper_funcs.misc import paginate_modules
+from AmeliaRobot.modules.helper_funcs.misc import paginate_modules
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext
 from telegram.utils.helpers import escape_markdown
