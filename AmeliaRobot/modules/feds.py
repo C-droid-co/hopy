@@ -5,16 +5,15 @@ import re
 import time
 import uuid
 from io import BytesIO
-
+from AmeliaRobot import INSPECTOR as DRAGONS
+from AmeliaRobot import INSPECTOR as TIGERS
+from AmeliaRobot import DEV_USERS as WOLVES
 import AmeliaRobot.modules.sql.feds_sql as sql
 from AmeliaRobot import (
     EVENT_LOGS,
     LOGGER,
     SUPPORT_CHAT,
     OWNER_ID,
-    DRAGONS,
-    TIGERS,
-    WOLVES,
     dispatcher,
 )
 from AmeliaRobot.modules.disable import DisableAbleCommandHandler
