@@ -62,11 +62,11 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = (
-    f"Hello *{}* ! My name is *{}* . I can manage [your](https://telegra.ph/file/29c96b37118570a764397.jpg) "
-    + "group with lots of useful features, feel free to "
-    + "add me to your group."
-)
+PM_START_TEXT = """
+    Hello *{}* ! My name is *{}* . I can manage [your](https://telegra.ph/file/29c96b37118570a764397.jpg)/n
+    + group with lots of useful features, feel free to/n
+    + add me to your group.
+"""
 
 
 
